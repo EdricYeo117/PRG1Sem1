@@ -1,0 +1,6 @@
+X is a global variable
+n is a global variable
+Y is a global variable
+
+p is local variable in function
+i is a local variable in for loop 

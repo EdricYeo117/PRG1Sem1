@@ -1,0 +1,54 @@
+-String method operators-
+isalpha () is to check if a string contains only characters (no numbers, no spaces, no special characters) and is not empty
+isalnum() to check if a string containts characters or digits and is not empty (alphanumerical)
+isdecimal() to check if a string contains digits and is not empty 
+lower() to get a lowercase version of a string
+islower() to check if a string is lowercase
+upper() to get an uppercase version of a string
+isupper() to check if a string is uppercase
+tilt() to get a capitalized version of a string
+startswith() to check if the string starts with a specific substring
+endswith() to check if the stirng ends with a specific substring
+replace() to replace a part of a string
+split() to trim the whitespace from a string
+join() to append new letters to a string
+find() to find the positon of a substring
+len() to find the length of a string
+index() to find the positon of a character in a string (with respect as the most left to 0)
+
+-Variable Indexing-
+use variable[] to grab a specific character from a string 
+when using variable [x:y], it is inclusive of x, exclusive of y
+
+
+use "\" to take raw string
+use "\n" to make new line
+use "\\" to add backslash, as backslash cancels out
+
+-Boolean-
+True
+False
+all(<only true if all true>)
+
+
+-Complex numbers LOL-
+complex = x + yj
+num = complex(x,y)
+
+print(num.real, num.imag)
+
+-Built in functions for python numerical manipulation-
+
+abs() -> gives the absolute value of a number (disregards if negative or positive)
+round(<value>, <precision>) -> rounds the number off
+
+-Enums-
+from enum import enum
+class Sate(enum):
+ INACTIVE = 0
+ ACTIVE = 1
+print(State.ACTIVE)
+
+
+
+

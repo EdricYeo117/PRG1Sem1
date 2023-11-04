@@ -1,0 +1,846 @@
+-String method operators-
+isalpha () is to check if a string contains only characters (no numbers, no spaces, no special characters) and is not empty
+isalnum() to check if a string containts characters or digits and is not empty (alphanumerical)
+isdecimal() to check if a string contains digits and is not empty 
+lower() to get a lowercase version of a string
+islower() to check if a string is lowercase
+upper() to get an uppercase version of a string
+isupper() to check if a string is uppercase
+tilt() to get a capitalized version of a string
+startswith() to check if the string starts with a specific substring
+endswith() to check if the stirng ends with a specific substring
+replace() to replace a part of a string
+split() to trim the whitespace from a string
+join() to append new letters to a string
+find() to find the positon of a substring
+len() to find the length of a string
+index() to find the positon of a character in a string (with respect as the most left to 0)
+
+-Variable Indexing-
+use variable[] to grab a specific character from a string 
+when using variable [x:y], it is inclusive of x, exclusive of y
+
+
+use "\" to take raw string
+use "\n" to make new line
+use "\\" to add backslash, as backslash cancels out
+
+-Boolean-
+True
+False
+all(<only true if all true>)
+
+
+-Complex numbers LOL-
+complex = x + yj
+num = complex(x,y)
+
+print(num.real, num.imag)
+
+-Built in functions for python numerical manipulation-
+
+abs() -> gives the absolute value of a number (disregards if negative or positive)
+round(<value>, <precision>) -> rounds the number off
+
+-Enums-
+from enum import enum
+class Sate(enum):
+ INACTIVE = 0
+ ACTIVE = 1
+print(State.ACTIVE)
+
+-LISTS-
+
+To remove a item in the list:
+list.remove("<item>")
+
+To add an item to the list:
+list += ["item"]
+
+To remove the last item from the list and return:
+list.pop
+
+To insert an item into the list at a specific spot:
+list.insert (<index>, <item>)
+
+To insert multiple items, use slices:
+list[1:1] = [<item1>, <item2>]
+
+To sort a list:
+list.sort()
+
+Orders uppcase letters first, follow by lowercase.
+
+to fix, use list.sort(key=str.lower)
+modifies the list content
+
+To not modify, use:
+list = list1[:]
+list.sort()
+
+To sort without modifying original list:
+sorted(list, key=str.lower)
+
+
+
+-TUPLES-
+tuple = (item1, item2)
+tuple[0]
+tuple.index(item1)
+len{tuple) = 2 <number of items in a list>
+
+print("item1" in names) -> Prints true as a boolean
+tuple[0:2]  
+
+- cannot modify tuples, can add to make a new tuple, but cannot append/add
+
+tuple2 = tuple + (item3, item4)
+
+
+-DICTIONARIES-
+
+dict = {key : value}
+
+Example:
+dog = {"name" : "Roger", "age" : 8}
+print(dog["name"]) will give "Roger"
+
+dog["name"] = "syd"
+print(dog) = {"name" : "syd", "age" :8}
+
+Returning a specific key:
+print(dict.get{"key1", "key2"}
+
+For boolean to verify keys:
+print(key in dict)
+
+For finding all the keys in a dictionary:
+print(dict.keys()) - > Prints all the keys
+print(list(dict.keys())) -> Returns a list of keys
+
+For finding all the values in a dictionary:
+print(dict.values()) -> Prints all the values
+print(list(dict.values())) -> Returns a list of values
+
+For finding all items in a dictionary:
+print(list(dict.items())) -> Returns all items as a list:
+
+Finding amount of items in a dictionary:
+len(dict) -> Returns a number of items in list
+
+Adding to a dictionary:
+dict[<key>] = <value>
+
+Deleting an item in dictionary:
+del dict[key]
+
+Copying a dictionary:
+dictCopy = dict.copy()
+
+
+-SETS-
+set1 = {item1, item2}
+set2 = {item1}
+
+intersect = set1 & set2
+
+union = set1 | set2
+
+difference = set1 - set2
+
+subset = set1 > set2 (returns true or false) [Is set2 a subset of set1]
+
+Convert set into list
+list(set1)
+
+-A set cannot have duplicate items
+
+
+-FUNCTIONS-
+
+1) How to write function
+
+def hello():
+ print(Hello!) <indentation can be any spaces, as long as consistent>
+
+#decompose a programme into readable parts, encourages code readability and reusuability
+
+When executing a function use:
+hello()
+
+So for example:
+def function():
+ print("this is a function")
+
+
+function()
+
+2) Function with parameter
+
+Function with a parameter:
+
+def function(parameter):
+ print(<variable> + <parameter>)
+
+function(parameter)
+function(parameter)
+
+An example:
+
+def hello(name):
+ print("Hello" + name)
+
+hello("Edric") -> print(Hello Edric)
+hello("Jake") -> print(Hello Jake)
+
+3) Difference between arguments and parameters:
+
+Parameters: Values accepted by the function, inside function definition
+Arguments: Values passed to the function when called
+
+
+4) When not running an argument into a function with a specified parameter, typeerror occurs
+
+Example:
+
+def hello(name)
+ print("Hello" + name)
+
+hello() -> TypeError as no argument provided for parameter
+
+to fix;
+
+use def hello(name = "my friend"),
+so that it will default
+
+5) Function with multiple parameters:
+
+def hello(name, age):
+ print("Hello {} you are {} years old".format(name, str(age)))
+
+hello("Edric", 27)
+
+6) Dictionaries are mutable, can be changed by functions
+
+7) Functions can return a value with 
+
+return <x> ; this ends the function
+
+-Can also return multiple items:
+
+Example:
+
+def hello(name):
+ print("Hello" + name + "!")
+ return name, "Edric", 8
+
+print(hello("Jake")) -> 
+Hello Edric!
+('Jake', 'Edric', 8)
+
+
+-VARIABLE SCOPES-
+
+1)Declare variable outside of function, can be accessed in and out of a function (Global variable)
+
+2)Declare variable inside the function, only visible inside the function (Local variable)
+
+
+
+-NESTED FUNCTIONS-
+
+Example 1:
+
+def talk(phrase):
+ def say(word):
+  print(word)
+
+ words = phrase.split(' ')
+ for word in words:
+  say(word)
+
+talk('I am going to buy the milk')
+
+#this gives
+
+I
+am
+going
+to
+buy
+the
+milk
+
+
+Example 2:
+
+def count():
+ count = 0 
+
+ def increment():
+   nonlocal count
+   count += 1
+   print(count)
+ increment()
+
+count()
+
+
+
+
+-CLOSURES-
+
+
+def counter():
+ count = 0
+ 
+ def increment():
+   nonlocal count
+   count += 1
+   return count
+ return increment
+
+increment = counter()
+
+print(increment())
+print(increment())
+print(increment())
+
+#assign variable to a returned inner function, because calling inner function, doesn't reset to 0, keeps track of values, it still has access to the "count" value despite it being inactive
+
+
+-OBJECTS-
+
+accessed using . index
+
+
+Example1 for int objects:
+
+age = 8
+print(age.real) -> 8
+print(age.imag) -> 0
+print(age.bit_length()) -> 4
+
+Example2 for lists:
+
+items = [1,2]
+items.append(3) - > [1,2,3]
+items.pop() -> [1,2] while returning '3'
+print(id(items)) -> location in memory
+
+
+#Some objects are immutable/mutable
+If object can change content = mutable
+Objects cannot change content = immutable
+
+Int immutable, as it creates a new value
+Lists mutable, as it is edited
+
+-Method to call object-
+objectName.methodInObject(argument)
+
+-LOOPS-
+
+-WHILE loop:-
+
+Loop repeats until condition is false:
+
+Example 1: Infinite loops
+
+condition = True
+while condition == True:
+ print("The condition is True")
+ #condition = False 
+
+[This runs infinitely, unless putting in commented code]
+
+Example 2: Loop w/ ends
+
+
+count = 0
+while count < 10:
+ print(This condition is true")
+ count += 1
+
+print("after the loop")
+
+-FOR loop:-
+
+items = [1, 2, 3, 4]
+for item in items:
+ print(item)
+
+
+for item in range(5):
+ print(item)
+<this prints 0 to 14>
+
+# Enumerating
+items = [1, 2, 3, 4]
+for index, item in enumerate(items):
+ print(item)
+
+<This prints the index and the item>
+
+
+Break & Continue:
+
+items [1, 2, 3, 4]
+for item in items:
+ if item == 2:
+  continue
+ print(item)
+
+<prints 1, 3 ,4>
+
+items [1, 2, 3, 4]
+for items in items:
+ if item == 2:
+  break
+ print(item)
+
+<prints 1>
+
+-Classes-
+object is an instance of class, class is a type of object
+
+class Dog: 
+ def bark(self):
+  print("woof")
+
+roger = Dog()
+
+print(type(roger))
+
+#will give <class '__main__.Dog.>
+
+--------------------
+
+>>>  <<<<
+class Dog:
+ def __init__ (self, name, age):
+  self.name = name
+  self.age = age
+
+ def bark(self):
+  print("woof!")
+
+roger = Dog("Roger", 8)
+print(roger.name)
+print(roger.age)
+roger.bark()
+
+>>> Roger
+>>> 8
+>>> woof!
+
+-Inheritance in classes-
+
+class Animal:
+ def walk(self):
+  print("Walking..."
+
+#can make Dog class inherit from Animal class
+#now using previous function 
+
+class Dog:
+ def __init__ (self, name, age):
+  self.name = name
+  self.age = age
+
+ def bark(self):
+  print("woof!")
+
+roger = Dog("Roger", 8)
+print(roger.name)
+print(roger.age)
+roger.bark()
+roger.walk()  <- Inheriting method from previous class.
+
+-modules-
+
+import <module>
+
+def bark():
+ print("woof!")   <---- dog.py
+
+#new python code
+
+import dog
+
+dog.bark()
+
+>>> woof!
+
+
+from dog import bark
+
+bark()
+
+>>> woof!
+
+
+-Accepting Arguments-
+
+in powershell, python main.py
+
+
+
+-LAMBDA functions-
+
+lambda num : num * 2
+<argument : expression>, expression has to be return a value
+
+lambda a, b : a * b
+
+multiply = lambda a, b : a * b
+
+print(mutiply(2, 4))
+>>> 8 
+
+Lambda is useful when combined with other functions
+
+-MAP, FILTER, REDUCE-
+
+#used to work with collections
+
+For map():
+
+#Run a function upon each item, in an iterable item like a list.
+Such as creating a new list with the same number of items, but values of each item changed.
+
+Example1:
+
+numbers = [1, 2, 3]
+def double(a):
+ return a * 2
+
+result = map(double, numbers)
+print (list(result))
+>>> [2, 4, 6]
+
+
+Example2(using lambda function):
+
+numbers = [1, 2, 3]
+double = lambda a : a * 2
+result = map(double, numbers)
+print(list(result))
+>>> [2, 4, 6]
+
+alternatively;
+
+numbers = [1, 2, 3]
+result = map(lambda a: a * 2, numbers)
+#variable = map(lambda <expression>, list)
+print(list(result))
+>>> [2, 4, 6]
+
+For filter():
+#takes an iterable, filters object, makes another iterable without some original values
+
+Example1(filtering even no.):
+
+numbers = [1, 2, 3, 4, 5, 6]
+def isEven(n):
+ return n % 2 == 0
+
+result = filter(isEven, numbers)
+print(List(result))
+>>> [2, 4, 6]
+
+alternatively using lambda;
+
+numbers = [1, 2, 3, 4, 5, 6]
+result = filter(lambda n : n % 2 == 0, numbers)
+print(list(result))
+>>> [2, 4, 6]
+
+For reduce():
+#used to calculate a value out of a sequence such as list:
+
+Example1:
+[Long way without using reduce]
+
+expenses = [
+    ('Dinner', 80)
+    ('Car repair', 120)
+]
+
+sum = 0
+for expense in expenses:
+ sum += expense[1]
+
+print(sum)
+
+
+-----------
+
+#reduce has to be imported
+
+from functool import reduce
+
+expenses = [('Dinner', 80) ('Car repair', 120)]
+
+sum = reduce(lambda a, b: a[1] + b[1], expenses)
+print(sum)
+>>> 200
+
+
+-RECURSION-
+
+#function in python can call upon itself
+
+-> Using factorials
+
+
+def factorial(n):
+ if n == 1: return 1        #base case so recursion can stop
+ return n * factorial(n-1)  #recursion
+
+print(factorial(3))
+print(factorial(4))
+print(factorial(5))
+>>> 6
+>>> 24
+>>> 120
+
+-Decorators-
+# Way to change, enhance, alter ways a function work
+# Denoted by the @ symbol
+
+Example:
+@logtime
+def hello():
+ print("hello")
+
+#decorator is a function that takes a function as a parameter, wraps it as an inner function, runs it, returns that innerfunction:
+
+def logtime(func):
+ def wrapper():
+   print("before")
+   val = func()
+   print("after")
+   return val
+ return wrapper
+
+@logtime
+def hello():
+ print("hello")
+
+hello()
+>>> before
+>>> hello
+>>> after
+
+
+
+
+-DOC STRINGS-
+#alternative to comments
+
+def function(parameter)
+  """<doc string>"""
+  return ""
+
+-can use python global documentation using help(func/class/whatever)
+
+
+-ANNOTATIONS-
+#Optionally denote types of values
+
+def increment(n: int) -> int:
+ return n + 1
+
+count: int = 0
+
+-python ignores annotations
+
+-EXCEPTIONS-
+#wrap lines of code in try block
+
+try:
+ <code>
+except <ERROR1>:
+ #handle <ERROR1>
+except <ERROR2>
+ #handle <ERROR 2>
+except: 
+#if want to catch all errors
+------------
+else:
+#no exceptions raised, code ran successfully
+------------
+finally:
+#do something in any case
+
+
+Example:
+
+result =  2 / 0  #Zero Division Error
+print(result)
+
+>>> Error
+
+
+try:
+ result = 2 / 0
+except ZeroDivisionError:
+ print("Cannot divide by zero!")
+finally:
+ result = 1
+
+print(result)
+>>> Cannot divide by zero!
+>>> 1
+
+
+1) can also raise exceptions intentionally
+
+raise Exception("An error!")
+#raises a general exception
+
+2 can also intercept exceptions
+
+try:
+ raise Exception("An error!")
+except Exception as error:
+ print(error)
+
+#this intercepts error message, prints a message instead
+
+3)Define your own exception class, extending from exception
+
+Example:
+
+class DogNotFoundException(Exception):
+ print("inside')
+ pass 
+
+try: 
+ raise DogNotFoundException():
+except DogNotFoundException:
+ print('Dog not found!')
+>>> inside
+>>> Dog not found!
+
+
+-With statements-
+
+filename = <path>
+try: 
+ file = open(filename, 'r')
+ content = file.read()
+ print(content)
+
+finally:
+ file.close()
+
+-------------
+
+filename = <path>
+
+with open(filename, 'r') as file:
+ content = file.read()
+ print(content)
+
+#built-in intrinsic exception handling
+
+
+-List Compressions-
+
+#way to make lists in a concise way
+
+numbers = [1, 2, 3, 4, 5]
+
+numbers_power_2 = [n**2 for n in numbers]
+print(numbers_power_2)
+>>> [1, 4, 9, 16, 25]
+
+-----------
+#instead of using for i in range: <which would look like this>
+numbers_power_2 = []
+for n in numbers:
+ numbers_power_2.append(n**2)
+
+-------------
+numbers_power_2 = list(map(lambda n : n**2, numbers))
+
+
+-Polymorphism-
+#Generalizes a functionality so it can work on varius types.
+
+Example:
+
+class Dog:
+ def eat(self):
+  print("Eating dog food")
+
+class Cat:
+ def eat(self):
+  print("Eating cat food")
+
+animal1 = Dog()
+animal2 = Cat()
+
+animal1.eat()
+animal2.eat()
+
+>>>Eating dog food
+>>>Eating cat food
+
+
+-Operator Overloading-
+#Make classes comparable, work with python operators
+
+class Dog:
+ def __init__(self, name, age):
+  self.name = name
+  self.age = age
+ def __gt__(self, other):
+  return True if self.age > other.age else False
+
+roger = Dog('Roger', 8)
+syd = Dog('Syd', 7)
+
+print(roger > syd)
+>>> True
+#as 8 > 7
+
+ 
+__add__() responds to + operator
+__sub__() responds to - operator
+__mul__() responds to * operator
+__truediv__() responds to / operator
+__floordiv__() responds to // operator
+__mod__() responds to % operator
+__pow__() responds to ** operator
+__rshift__() responds to >> operator
+__lshift__() responds to the << operator 
+__and__() respond to the & operator
+__or__() respond to the | operator
+__xor__() respond to the ^ opeator
+
+
+
+
+Encapsulation:
+
+Public -
+Accessed outside of class
+Can be called via objects of the class
+Denoted by default
+
+Private - 
+Acesss within class
+Cannot be called via objects of the class
+Denoted with 2 underscores
+
+
+
+
+
+
+
+
+  
